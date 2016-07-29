@@ -1,7 +1,8 @@
 'use strict';
 
-// user require with a reference to bundle the file and use it in this file
-// var example = require('./example');
+const paperSetup = require('./paper/paper-setup');
 
-// use require without a reference to ensure a file is bundled
-require('./example');
+$(() => {
+  paper.install(window);
+  paperSetup.addHandlers();
+});
