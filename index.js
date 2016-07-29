@@ -17,3 +17,6 @@ require('expose?jQuery!jquery');
 // attach getFormFields globally
 
 require('expose?getFormFields!./lib/get-form-fields.js');
+
+// attach Paper.js globally
+require('expose?paper!paper');
