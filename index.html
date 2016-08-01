@@ -7,10 +7,19 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-
-      <canvas id="myCanvas"></canvas>
+      <div class="row">
+        <div class="col-xs-9">
+          <canvas id="myCanvas"></canvas>
+        </div>
+        <div class="col-xs-3">
+          <div class="pallette" style="height: 48px; width: 48px; background-color: red;"></div>
+          <div class="pallette" style="height: 48px; width: 48px; background-color: yellow;"></div>
+          <div class="pallette" style="height: 48px; width: 48px; background-color: blue;"></div>
+        </div>
+      </div>
       <br/>
-      <button class="btn btn-primary">Save it</button>
+      <button class="btn btn-primary exportSVG">Save it</button>
+      <button class="btn btn-primary importSVG">Get it</button>
 
     </body>
 </html>
