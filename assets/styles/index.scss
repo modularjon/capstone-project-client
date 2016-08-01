@@ -1,2 +1,29 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$background-color: #fefefe;
+$font-color: #0c0c0c;
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+button,
+form,
+input,
+legend {
+  float: left;
+  font-size: 12px;
+  margin: 6px;
+}
+
+.form-control {
+  padding: 2px 6px;
+}
+
+.signed-in {
+  font-size: 24px;
+}
