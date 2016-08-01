@@ -3,7 +3,7 @@
 const paper = require('paper');
 
 // literal definition in lieu of a future pallette
-let pixelColor = 'red';
+let pixelColor;
 
 // variable to hold exported svg
 let svg;
@@ -28,10 +28,6 @@ const paperSetup = () => {
         let paperPixel = new paper.Path.Rectangle(canvasSize.left + i * widthPixels, canvasSize.top + j * heightPixels, widthPixels, heightPixels);
         paperPixel.strokeColor = 'grey';
         paperPixel.fillColor = 'white';
-
-        paperPixel.onClick = function(event) {
-          this.fillColor = pixelColor;
-        };
       }
     }
   };
@@ -39,30 +35,33 @@ const paperSetup = () => {
   // creates the grid
   drawGridRects(16, 16, paper.view.bounds);
 
+  paper.view.onClick = function(event) {
+    let i = paper.project.hitTest(event.point).item.index;
+    paper.project.activeLayer.children[i].fillColor = pixelColor;
+  };
+
   // draws the view
   paper.view.draw();
 };
 
-const exportSVG = function() {
-  svg = paper.project.exportSVG({asString: true});
+const exportJSON = function() {
+  svg = paper.project.exportJSON({asString: true});
   console.log(svg);
 };
 
-const importSVG = function() {
+const importJSON = function() {
   paper.project.clear();
-  paper.project.importSVG(svg);
+  paper.project.importJSON(svg);
 };
 
 const getPaletteColor = function(event) {
-  console.log(event.target);
-  console.log($(event.target).css('background-color'));
   pixelColor = $(event.target).css('background-color');
 };
 
 const addHandlers = () => {
   paperSetup();
-  $('.exportSVG').on('click', exportSVG);
-  $('.importSVG').on('click', importSVG);
+  $('.exportSVG').on('click', exportJSON);
+  $('.importSVG').on('click', importJSON);
   $('.palette').on('click', getPaletteColor);
 };
 
