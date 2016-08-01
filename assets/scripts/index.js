@@ -1,7 +1,8 @@
 'use strict';
 
-const paperSetup = require('./paper/paper-setup');
 const paper = require('paper');
+const paperSetup = require('./paper/paper-setup');
+const authEvents = require('./auth/auth-events');
 
 $(() => {
   paper.install(window);
