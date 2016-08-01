@@ -26,7 +26,7 @@ const paperSetup = () => {
     for (let i = 0; i < gridWidth; i++) {
       for (let j = 0; j < gridHeight; j++) {
         let paperPixel = new paper.Path.Rectangle(canvasSize.left + i * widthPixels, canvasSize.top + j * heightPixels, widthPixels, heightPixels);
-        paperPixel.strokeColor = 'black';
+        paperPixel.strokeColor = 'grey';
         paperPixel.fillColor = 'white';
 
         paperPixel.onClick = function(event) {
@@ -49,10 +49,11 @@ const exportSVG = function() {
 };
 
 const importSVG = function() {
-
+  paper.project.clear();
+  paper.project.importSVG(svg);
 };
 
-const getPalletteColor = function(event) {
+const getPaletteColor = function(event) {
   console.log(event.target);
   console.log($(event.target).css('background-color'));
   pixelColor = $(event.target).css('background-color');
@@ -62,7 +63,7 @@ const addHandlers = () => {
   paperSetup();
   $('.exportSVG').on('click', exportSVG);
   $('.importSVG').on('click', importSVG);
-  $('.pallette').on('click', getPalletteColor);
+  $('.palette').on('click', getPaletteColor);
 };
 
 module.exports = {
