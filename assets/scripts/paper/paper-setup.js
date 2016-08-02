@@ -2,7 +2,7 @@
 
 const paper = require('paper');
 const api = require('./paper-api');
-// const ui = require('./paper-ui');
+const ui = require('./paper-ui');
 
 // literal definition in lieu of a future pallette
 let pixelColor;
@@ -49,9 +49,18 @@ const paperSetup = () => {
 const exportJSON = function() {
   svg = paper.project.exportJSON({asString: true});
   console.log(svg);
-  api.createPost(svg);
-    // .done(ui.success)
-    // .fail(ui.failure);
+
+  let data = {
+    "post": {
+      "title": "My post",
+      "content": svg
+    }
+  };
+
+  console.log(data);
+  api.createPost(data)
+    .done(ui.success)
+    .fail(ui.failure);
 };
 
 const importJSON = function() {
