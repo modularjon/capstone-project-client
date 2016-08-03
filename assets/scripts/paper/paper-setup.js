@@ -14,7 +14,7 @@ const paperSetup = () => {
   // Get reference to canvas object:
   // let canvas = document.getElementById('myCanvas');
   // Create empty project and view for the canvas:
-  paper.setup('myCanvas');
+  paper.setup('drawing');
 
   // set canvas to 256 x 256 pixels
   let canvasDimension = 256;
@@ -27,8 +27,8 @@ const paperSetup = () => {
     let heightPixels = canvasSize.height / gridHeight;
     for (let i = 0; i < gridWidth; i++) {
       for (let j = 0; j < gridHeight; j++) {
-        let paperPixel = new paper.Path.Rectangle(canvasSize.left + i * widthPixels, canvasSize.top + j * heightPixels, widthPixels, heightPixels);
-        paperPixel.strokeColor = 'grey';
+        let paperPixel = new paper.Path.Circle(canvasSize.left + (i + 0.5) * widthPixels, canvasSize.top + (j + 0.5) * heightPixels, widthPixels/2);//, heightPixels);
+        paperPixel.strokeColor = '#d3d3d3';
         paperPixel.fillColor = 'white';
       }
     }
@@ -38,6 +38,9 @@ const paperSetup = () => {
   drawGridRects(16, 16, paper.view.bounds);
 
   paper.view.onClick = function(event) {
+    if (!pixelColor) {
+      return;
+    }
     let i = paper.project.hitTest(event.point).item.index;
     paper.project.activeLayer.children[i].fillColor = pixelColor;
   };
@@ -72,8 +75,15 @@ const getPaletteColor = function(event) {
   pixelColor = $(event.target).css('background-color');
 };
 
+const getPosts = () => {
+  api.indexPosts()
+    .done(ui.displayPosts)
+    .fail(ui.failure);
+};
+
 const addHandlers = () => {
   paperSetup();
+  $('.get-posts').on('click', getPosts);
   $('.exportSVG').on('click', exportJSON);
   $('.importSVG').on('click', importJSON);
   $('.palette').on('click', getPaletteColor);
