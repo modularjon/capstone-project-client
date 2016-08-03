@@ -1,14 +1,21 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-$background-color: #fefefe;
-$font-color: #0c0c0c;
+$background-color: #fef2e5;
+$black: #0c0c0c;
+$white: #fff;
+$bootstrap-blue: #004c99;
 
 body {
   background-color: $background-color;
-  color: $font-color;
+  color: $black;
+  margin: 30px;
   padding-bottom: 15px;
   padding-top: 15px;
+}
+
+nav {
+  background-color: $bootstrap-blue !important;
 }
 
 button,
@@ -20,10 +27,28 @@ legend {
   margin: 6px;
 }
 
+.drawing {
+
+}
+
+.feed {
+
+}
+
+.drawing-actions {
+
+}
+
+.palette {
+  display: inline-block;
+}
+
 .form-control {
   padding: 2px 6px;
 }
 
 .signed-in {
+  color: $white;
   font-size: 24px;
+  padding-left: 24px;
 }
