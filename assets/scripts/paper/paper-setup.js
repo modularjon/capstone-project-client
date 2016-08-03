@@ -84,12 +84,24 @@ const getPosts = () => {
     .fail(ui.failure);
 };
 
+const getSinglePost = (event) => {
+  event.preventDefault();
+
+  let title = getFormFields(event.target).title;
+  let id = $(`.title:contains(${title})`).data('id');
+
+  api.showPost(id)
+    .done(ui.displayPosts)
+    .fail(ui.failure);
+};
+
 const addHandlers = () => {
   paperSetup();
-  $('.get-posts').on('click', getPosts);
   $('.exportSVG').on('submit', exportJSON);
   $('.importSVG').on('click', importJSON);
   $('.palette').on('click', getPaletteColor);
+  $('.get-posts').on('click', getPosts);
+  $('.get-single-post').on('submit', getSinglePost);
 };
 
 module.exports = {
