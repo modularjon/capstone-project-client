@@ -12,6 +12,16 @@ const indexPosts = () => {
   });
 };
 
+const showPost = (data) => {
+  return $.ajax({
+    url: app.host + '/posts/' + data,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
 const createPost = (data) => {
   return $.ajax({
     url: app.host + '/posts',
@@ -25,5 +35,6 @@ const createPost = (data) => {
 
 module.exports = {
   indexPosts,
+  showPost,
   createPost,
 };
