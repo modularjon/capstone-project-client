@@ -8,87 +8,92 @@
   <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 
-<body class="container-fluid">
+<body class="container">
   <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
+      <br/>
+      <div class="signed-in">Sign in to start!</div>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <form class="navbar-form navbar-left sign-up">
-          <div class="form-inline">
-            <fieldset>
-              <input class="form-control" type="submit" name="submit" value="Sign up">
-              <input class="form-control" type="text" name="credentials[email]" placeholder="Enter your email">
-              <input class="form-control" type="password" name="credentials[password]" placeholder="Enter your password">
-              <input class="form-control" type="password" name="credentials[password_confirmation]" placeholder="Password again">
-            </fieldset>
-          </div>
-        </form>
-        <form class="navbar-form navbar-left sign-in">
-          <div class="form-inline">
-            <fieldset>
-              <input class="form-control" type="submit" name="submit" value="Sign in">
-              <input class="form-control" type="text" name="credentials[email]" placeholder="Enter your email">
-              <input class="form-control" type="password" name="credentials[password]" placeholder="Enter your password">
-            </fieldset>
-          </div>
-        </form>
-        <form class="navbar-form navbar-left sign-out" style="display: none">
-          <div class="form-inline">
-            <fieldset>
-              <input class="form-control" type="submit" name="submit" value="Sign out">
-            </fieldset>
-          </div>
-        </form>
-        <form class="navbar-form navbar-right change-password" style="display: none">
-          <div class="form-inline">
-            <fieldset>
-              <input class="form-control" type="submit" name="submit" value="Change password">
-              <input class="form-control" type="password" name="passwords[old]" placeholder="Old password">
-              <input class="form-control" type="password" name="passwords[new]" placeholder="New password">
-            </fieldset>
-          </div>
-        </form>
-      </div>
-      <!-- /.navbar-collapse -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left sign-up">
+        <div class="form-inline">
+          <fieldset>
+            <input class="form-control" type="submit" name="submit" value="Sign up">
+            <input class="form-control" type="text" name="credentials[email]" placeholder="Enter your email">
+            <input class="form-control" type="password" name="credentials[password]" placeholder="Enter your password">
+            <input class="form-control" type="password" name="credentials[password_confirmation]" placeholder="Password again">
+          </fieldset>
+        </div>
+      </form>
+      <form class="navbar-form navbar-left sign-in">
+        <div class="form-inline">
+          <fieldset>
+            <input class="form-control" type="submit" name="submit" value="Sign in">
+            <input class="form-control" type="text" name="credentials[email]" placeholder="Enter your email">
+            <input class="form-control" type="password" name="credentials[password]" placeholder="Enter your password">
+          </fieldset>
+        </div>
+      </form>
+      <form class="navbar-form navbar-left sign-out" style="display: none">
+        <div class="form-inline">
+          <fieldset>
+            <input class="form-control" type="submit" name="submit" value="Sign out">
+          </fieldset>
+        </div>
+      </form>
+      <form class="navbar-form navbar-right change-password" style="display: none">
+        <div class="form-inline">
+          <fieldset>
+            <input class="form-control" type="submit" name="submit" value="Change password">
+            <input class="form-control" type="password" name="passwords[old]" placeholder="Old password">
+            <input class="form-control" type="password" name="passwords[new]" placeholder="New password">
+          </fieldset>
+        </div>
+      </form>
+    </div>
+    <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
   </nav>
-  <div class="signed-in"></div>
-  <div class="row">
-    <div class="col-xs-8">
+  <div class="col-xs-6 drawing">
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: red; border: 2px solid grey;"></div>
+        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: yellow; border: 2px solid grey;"></div>
+        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: blue; border: 2px solid grey;"></div>
+        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: black; border: 2px solid grey;"></div>
+        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: green; border: 2px solid grey;"></div>
+        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: purple; border: 2px solid grey;"></div>
+        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: orange; border: 2px solid grey;"></div>
+        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: white; border: 2px solid grey;"></div>
+      </div>
       <div class="col-xs-8">
-        <canvas id="myCanvas"></canvas>
+        <div class="row">
+          <canvas id="drawing"></canvas>
+        </div>
+        <div class="row">
+          <button class="btn btn-primary drawing-actions get-posts">Get all posts</button>
+          <button class="btn btn-primary drawing-actions importSVG">Get it</button>
+          <button class="btn btn-primary drawing-actions exportSVG">Save it</button>
+          <button class="btn btn-primary drawing-actions updateSVG">Update it</button>
+          <button class="btn btn-primary drawing-actions deleteSVG">Delete it</button>
+        </div>
       </div>
-      <div class="col-xs-2">
-        <div class="palette" style="height: 48px; width: 48px; background-color: red; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; background-color: yellow; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; background-color: blue; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; background-color: black; border: 2px solid grey;"></div>
-      </div>
-      <div class="col-xs-2">
-        <div class="palette" style="height: 48px; width: 48px; background-color: green; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; background-color: purple; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; background-color: orange; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; background-color: white; border: 2px solid grey;"></div>
-      </div>
-    </div>
-    <div class="col-xs-4" style="font-size: 48px;">
-      Post Feed
     </div>
   </div>
-  <br/>
-  <button class="btn btn-primary exportSVG">Save it</button>
-  <button class="btn btn-primary importSVG">Get it</button>
+  <div class="col-xs-6" style="font-size: 48px; text-align: center;">
+    Post Feed
+    <div class="feed"></div>
+  </div>
+
 
 </body>
 
