@@ -1,4 +1,6 @@
 {{#each posts}}
-  {{title}}
-  <canvas id="feed-canvas-{{id}}" data-id={{id}} data-content={{content}}></canvas>
+  <div>
+    <h2 class="title" data-id={{id}}>{{title}}</h2>
+    <canvas id="feed-canvas-{{id}}" data-id={{id}} data-content={{content}}></canvas>
+  </div>
 {{/each}}
