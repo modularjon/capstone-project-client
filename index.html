@@ -10,8 +10,8 @@
 
 <body class="container">
   <nav class="navbar navbar-inverse">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
       <br/>
       <div class="signed-in">Sign in to start!</div>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -21,45 +21,45 @@
         <span class="icon-bar"></span>
       </button>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form class="navbar-form navbar-left sign-up">
-        <div class="form-inline">
-          <fieldset>
-            <input class="form-control" type="submit" name="submit" value="Sign up">
-            <input class="form-control" type="text" name="credentials[email]" placeholder="Enter your email">
-            <input class="form-control" type="password" name="credentials[password]" placeholder="Enter your password">
-            <input class="form-control" type="password" name="credentials[password_confirmation]" placeholder="Password again">
-          </fieldset>
-        </div>
-      </form>
-      <form class="navbar-form navbar-left sign-in">
-        <div class="form-inline">
-          <fieldset>
-            <input class="form-control" type="submit" name="submit" value="Sign in">
-            <input class="form-control" type="text" name="credentials[email]" placeholder="Enter your email">
-            <input class="form-control" type="password" name="credentials[password]" placeholder="Enter your password">
-          </fieldset>
-        </div>
-      </form>
-      <form class="navbar-form navbar-left sign-out" style="display: none">
-        <div class="form-inline">
-          <fieldset>
-            <input class="form-control" type="submit" name="submit" value="Sign out">
-          </fieldset>
-        </div>
-      </form>
-      <form class="navbar-form navbar-right change-password" style="display: none">
-        <div class="form-inline">
-          <fieldset>
-            <input class="form-control" type="submit" name="submit" value="Change password">
-            <input class="form-control" type="password" name="passwords[old]" placeholder="Old password">
-            <input class="form-control" type="password" name="passwords[new]" placeholder="New password">
-          </fieldset>
-        </div>
-      </form>
-    </div>
-    <!-- /.navbar-collapse -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <form class="navbar-form navbar-left sign-up">
+          <div class="form-inline">
+            <fieldset>
+              <input class="form-control" type="submit" name="submit" value="Sign up">
+              <input class="form-control" type="text" name="credentials[email]" placeholder="Enter your email">
+              <input class="form-control" type="password" name="credentials[password]" placeholder="Enter your password">
+              <input class="form-control" type="password" name="credentials[password_confirmation]" placeholder="Password again">
+            </fieldset>
+          </div>
+        </form>
+        <form class="navbar-form navbar-left sign-in">
+          <div class="form-inline">
+            <fieldset>
+              <input class="form-control" type="submit" name="submit" value="Sign in">
+              <input class="form-control" type="text" name="credentials[email]" placeholder="Enter your email">
+              <input class="form-control" type="password" name="credentials[password]" placeholder="Enter your password">
+            </fieldset>
+          </div>
+        </form>
+        <form class="navbar-form navbar-left sign-out" style="display: none">
+          <div class="form-inline">
+            <fieldset>
+              <input class="form-control" type="submit" name="submit" value="Sign out">
+            </fieldset>
+          </div>
+        </form>
+        <form class="navbar-form navbar-right change-password" style="display: none">
+          <div class="form-inline">
+            <fieldset>
+              <input class="form-control" type="submit" name="submit" value="Change password">
+              <input class="form-control" type="password" name="passwords[old]" placeholder="Old password">
+              <input class="form-control" type="password" name="passwords[new]" placeholder="New password">
+            </fieldset>
+          </div>
+        </form>
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
   </nav>
@@ -80,9 +80,18 @@
           <canvas id="drawing"></canvas>
         </div>
         <div class="row">
+          <form class="exportSVG">
+            <div class="form-inline">
+              <fieldset>
+                <input class="form-control" type="text" name="title" placeholder="Title">
+                <input class="form-control btn btn-primary" type="submit" name="submit" value="Post drawing">
+              </fieldset>
+            </div>
+          </form>
+        </div>
+        <div class="row">
           <button class="btn btn-primary drawing-actions get-posts">Get all posts</button>
           <button class="btn btn-primary drawing-actions importSVG">Get it</button>
-          <button class="btn btn-primary drawing-actions exportSVG">Save it</button>
           <button class="btn btn-primary drawing-actions updateSVG">Update it</button>
           <button class="btn btn-primary drawing-actions deleteSVG">Delete it</button>
         </div>

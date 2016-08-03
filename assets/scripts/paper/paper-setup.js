@@ -1,6 +1,8 @@
 'use strict';
 
 const paper = require('paper');
+const getFormFields = require('../../../lib/get-form-fields');
+
 const api = require('./paper-api');
 const ui = require('./paper-ui');
 
@@ -49,18 +51,19 @@ const paperSetup = () => {
   paper.view.draw();
 };
 
-const exportJSON = function() {
+const exportJSON = function(event) {
+  event.preventDefault();
+
+  let title = getFormFields(event.target).title;
   svg = paper.project.exportJSON({asString: true});
-  console.log(svg);
 
   let data = {
     "post": {
-      "title": "My post",
+      "title": title,
       "content": svg
     }
   };
 
-  console.log(data);
   api.createPost(data)
     .done(ui.success)
     .fail(ui.failure);
@@ -84,7 +87,7 @@ const getPosts = () => {
 const addHandlers = () => {
   paperSetup();
   $('.get-posts').on('click', getPosts);
-  $('.exportSVG').on('click', exportJSON);
+  $('.exportSVG').on('submit', exportJSON);
   $('.importSVG').on('click', importJSON);
   $('.palette').on('click', getPaletteColor);
 };
