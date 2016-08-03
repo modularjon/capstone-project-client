@@ -31,6 +31,7 @@ const signInSuccess = (data) => {
 
 const signOutSuccess = () => {
   app.user = null;
+  $('.feed').html('');
   $('.sign-up').show();
   $('.sign-in').show();
   $('.sign-out').hide();
