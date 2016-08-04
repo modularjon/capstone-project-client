@@ -15,12 +15,28 @@ const failure = (error) => {
   console.error(error);
 };
 
-const displayPosts = function(posts){
+const displayPosts = (data) => {
+  $('form').trigger('reset');
+  $('.get-single-post').show();
+
+  if (data.post) {
+    $('.get-single-post').hide();
+    data.posts = [data.post];
+  }
+
+  app.posts = data.posts;
+
+  paper.projects.forEach((project, i) => {
+    if (i !== 0) {
+      project.remove();
+    }
+  });
+
   $('.feed').html('');
   let postListingTemplate = require('../templates/post-listing.handlebars');
-  $('.feed').append(postListingTemplate(posts));
-  console.log(posts);
-  posts.posts.forEach((post) => {
+  $('.feed').append(postListingTemplate(data));
+
+  data.posts.forEach((post) => {
 
     paper.setup(`feed-canvas-${post.id}`);
 
@@ -34,8 +50,22 @@ const displayPosts = function(posts){
   paper.projects[0].activate();
 };
 
+const deleteSuccess = (data) => {
+
+  paper.projects.forEach((project) => {
+    console.log(project._view._id);
+
+    if (project._view._id === `feed-canvas-${data}`) {
+      project.remove();
+    }
+  });
+
+  $(`.post[data-id="${data}"]`).remove();
+};
+
 module.exports = {
   success,
   failure,
   displayPosts,
+  deleteSuccess,
 };
