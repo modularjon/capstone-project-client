@@ -104,13 +104,24 @@ const onDeletePost = (event) => {
     .fail(ui.failure);
 };
 
+const onMoveToCanvas = (event) => {
+  event.preventDefault();
+
+  let id = $(event.target).data('id');
+  let content = $(`#feed-canvas-${id}`).data('content');
+  paper.projects[0].importJSON(content);
+  $('#drawing').data('id', id);
+  $('#drawing').data('content', content);
+};
+
 const addHandlers = () => {
   onPaperSetup();
   $('.palette').on('click', onGetPaletteColor);
   $('.get-posts').on('click', onGetAllPosts);
   $('.get-single-post').on('submit', onGetSinglePost);
   $('.exportSVG').on('submit', onCreatePost);
-  $(document).on('click','.delete-post', onDeletePost);
+  $(document).on('click', '.delete-post', onDeletePost);
+  $(document).on('click', '.move-to-canvas', onMoveToCanvas);
 };
 
 module.exports = {
