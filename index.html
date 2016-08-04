@@ -13,7 +13,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <br/>
-      <div class="signed-in">Sign in to start!</div>
+      <div class="signed-in">Sign up or in to start!</div>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -65,55 +65,61 @@
   </nav>
   <div class="col-xs-6 drawing">
     <div class="row">
-      <div class="col-xs-4">
-        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: red; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: yellow; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: blue; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: black; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: green; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: purple; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: orange; border: 2px solid grey;"></div>
-        <div class="palette" style="height: 48px; width: 48px; border-radius: 12px; background-color: white; border: 2px solid grey;"></div>
+      <div class="col-xs-4 palette-container">
+        <div class="palette" style="background-color: red;"></div>
+        <div class="palette" style="background-color: green;"></div>
+        <div class="palette" style="background-color: blue;"></div>
+        <div class="palette" style="background-color: orange;"></div>
+        <div class="palette" style="background-color: yellow;"></div>
+        <div class="palette" style="background-color: purple;"></div>
+        <div class="palette" style="background-color: black;"></div>
+        <div class="palette" style="background-color: white;"></div>
       </div>
-      <div class="col-xs-8">
-        <div class="row">
-          <canvas id="drawing"></canvas>
-        </div>
-        <div class="row">
-          <form class="exportSVG">
-            <div class="form-inline">
-              <fieldset>
-                <input class="form-control" type="text" name="title" placeholder="Title">
-                <input class="form-control btn btn-primary" type="submit" name="submit" value="Post drawing">
-              </fieldset>
+      <div class="col-xs-8 drawing-container">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="drawing-canvas">
+              <canvas id="drawing"></canvas>
             </div>
-          </form>
-        </div>
-        <div class="row">
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <form class="exportSVG">
+                <div class="form-horizontal">
+                  <fieldset>
+                    <input class="form-control" type="text" name="title" placeholder="Title">
+                    <input class="form-control btn btn-primary" type="submit" name="submit" value="Post drawing">
+                  </fieldset>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-xs-6" style="font-size: 48px; text-align: center;">
+  <div class="col-xs-6 feed-container">
     <div class="row">
       Post Feed
     </div>
     <div class="row">
-      <button class="btn btn-primary drawing-actions get-posts">Get all your posts</button>
-      <form class="get-single-post">
-        <div class="form-inline">
-          <fieldset>
-            <input class="form-control btn btn-primary" type="submit" name="submit" value="Find a drawing">
-            <input class="form-control" type="text" name="title" placeholder="Title">
-          </fieldset>
-        </div>
-      </form>
+      <div class="col-xs-12 drawing-actions">
+        <button class="btn btn-primary get-posts" style="display: none;">Get all your posts</button>
+        <form class="get-single-post" style="display: none;">
+          <div class="form-inline">
+            <fieldset>
+              <input class="form-control btn btn-primary" type="submit" name="submit" value="Find a drawing">
+              <input class="form-control" type="text" name="title" placeholder="Title">
+            </fieldset>
+          </div>
+        </form>
+      </div>
     </div>
     <div class="row">
-      <button class="btn btn-primary drawing-actions updateSVG">Update it</button>
-      <button class="btn btn-primary drawing-actions deleteSVG">Delete it</button>
+      <!-- <button class="btn btn-primary drawing-actions updateSVG">Update it</button>
+      <button class="btn btn-primary drawing-actions deleteSVG">Delete it</button> -->
     </div>
-    <div class="feed">
+    <div class="col-xs-12 feed">
     </div>
   </div>
 

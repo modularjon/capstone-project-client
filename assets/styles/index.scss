@@ -4,10 +4,15 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $background-color: #fef2e5;
 $black: #0c0c0c;
 $white: #fff;
+$grey: #808080;
 $bootstrap-blue: #004c99;
 
+@function tint($color, $percentage) {
+  @return mix($white, $color, $percentage);
+}
+
 body {
-  background-color: $background-color;
+  background-color: tint($grey, 80%);
   color: $black;
   margin: 30px;
   padding-bottom: 15px;
@@ -28,19 +33,52 @@ legend {
 }
 
 .drawing {
-
+  margin: 0 auto;
 }
 
-.feed {
+.drawing-container {
+  border: 3px solid $white;
+  border-radius: 12px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
+.drawing-canvas {
+  margin: 0 auto;
 }
 
 .drawing-actions {
 
 }
 
+.palette-container {
+  border: 3px solid $white;
+  border-radius: 12px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
 .palette {
+  border: 3px solid $white;
+  border-radius: 12px;
+  box-shadow: -2px -2px 1px 1px $black;
   display: inline-block;
+  height: 48px;
+  margin: 6px;
+  width: 48px;
+}
+
+.feed-container {
+  border: 3px solid $white;
+  border-radius: 12px;
+  font-size: 48px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.feed {
+
 }
 
 .form-control {
