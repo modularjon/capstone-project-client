@@ -6,11 +6,11 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./paper-api');
 const ui = require('./paper-ui');
 
-// literal definition in lieu of a future pallette
+// variable to hold chosen palette color
 let pixelColor;
 
 // variable to hold exported svg
-let svg;
+let content;
 
 const onPaperSetup = () => {
   // Get reference to canvas object:
@@ -39,6 +39,7 @@ const onPaperSetup = () => {
   // creates the grid
   drawGridRects(16, 16, paper.view.bounds);
 
+  // function to change fillColor of drawing canvas items
   paper.view.onClick = function(event) {
     if (!pixelColor) {
       return;
@@ -78,16 +79,45 @@ const onCreatePost = function(event) {
   event.preventDefault();
 
   let title = getFormFields(event.target).title;
-  svg = paper.project.exportJSON({asString: true});
+  content = paper.project.exportJSON({asString: true});
 
   let data = {
     "post": {
       "title": title,
-      "content": svg
+      "content": content
     }
   };
 
   api.createPost(data)
+    .then(ui.success)
+    .then(api.indexPosts)
+    .then(ui.displayPosts)
+    .catch(ui.failure);
+};
+
+const onMoveToCanvas = (event) => {
+  event.preventDefault();
+
+  let id = $(event.target).data('id');
+  let content = $(`#feed-canvas-${id}`).data('content');
+  paper.projects[0].importJSON(content);
+  $('#drawing').data('id', id);
+  $('#drawing').data('content', content);
+};
+
+const onUpdatePost = (event) => {
+  event.preventDefault();
+
+  let id = $('#drawing').data('id');
+  let content = paper.project.exportJSON({asString: true});
+
+  let data = {
+    "post": {
+      "content": content
+    }
+  };
+
+  api.updatePost(id, data)
     .then(ui.success)
     .then(api.indexPosts)
     .then(ui.displayPosts)
@@ -104,24 +134,15 @@ const onDeletePost = (event) => {
     .fail(ui.failure);
 };
 
-const onMoveToCanvas = (event) => {
-  event.preventDefault();
-
-  let id = $(event.target).data('id');
-  let content = $(`#feed-canvas-${id}`).data('content');
-  paper.projects[0].importJSON(content);
-  $('#drawing').data('id', id);
-  $('#drawing').data('content', content);
-};
-
 const addHandlers = () => {
   onPaperSetup();
   $('.palette').on('click', onGetPaletteColor);
   $('.get-posts').on('click', onGetAllPosts);
   $('.get-single-post').on('submit', onGetSinglePost);
-  $('.exportSVG').on('submit', onCreatePost);
-  $(document).on('click', '.delete-post', onDeletePost);
+  $('.create-post').on('submit', onCreatePost);
   $(document).on('click', '.move-to-canvas', onMoveToCanvas);
+  $('.update-post').on('click', onUpdatePost);
+  $(document).on('click', '.delete-post', onDeletePost);
 };
 
 module.exports = {
