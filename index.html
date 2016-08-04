@@ -63,65 +63,60 @@
     </div>
     <!-- /.container-fluid -->
   </nav>
-  <div class="col-xs-6 drawing">
-    <div class="row">
-      <div class="col-xs-4 palette-container">
-        <div class="palette" style="background-color: red;"></div>
-        <div class="palette" style="background-color: green;"></div>
-        <div class="palette" style="background-color: blue;"></div>
-        <div class="palette" style="background-color: orange;"></div>
-        <div class="palette" style="background-color: yellow;"></div>
-        <div class="palette" style="background-color: purple;"></div>
-        <div class="palette" style="background-color: black;"></div>
-        <div class="palette" style="background-color: white;"></div>
+
+  <div class="col-xs-12 main-content">
+    <div class="col-xs-6 drawing">
+      <div class="row">
+        <div class="col-xs-12 palette-container">
+          <div class="palette" style="background-color: red;"></div>
+          <div class="palette" style="background-color: green;"></div>
+          <div class="palette" style="background-color: blue;"></div>
+          <div class="palette" style="background-color: orange;"></div>
+          <div class="palette" style="background-color: yellow;"></div>
+          <div class="palette" style="background-color: purple;"></div>
+          <div class="palette" style="background-color: black;"></div>
+          <div class="palette" style="background-color: white;"></div>
+        </div>
       </div>
-      <div class="col-xs-8 drawing-container">
-        <div class="col-xs-12">
-          <div class="row">
-            <div class="drawing-canvas">
-              <canvas id="drawing"></canvas>
-            </div>
+      <div class="row">
+        <div class="col-xs-12 drawing-container">
+          <div class="drawing-canvas">
+            <canvas id="drawing"></canvas>
           </div>
-          <div class="row">
-            <div class="col-xs-12">
-              <form class="exportSVG">
-                <div class="form-horizontal">
-                  <fieldset>
-                    <input class="form-control" type="text" name="title" placeholder="Title">
-                    <input class="form-control btn btn-primary" type="submit" name="submit" value="Post drawing">
-                  </fieldset>
-                </div>
-              </form>
+          <form class="exportSVG">
+            <div class="form-inline">
+              <fieldset>
+                <input class="form-control" type="text" name="title" placeholder="Title">
+                <input class="form-control btn btn-primary" type="submit" name="submit" value="Post new drawing">
+              </fieldset>
             </div>
-          </div>
+          </form>
+          <button class="btn btn-primary update-post">Update this post</button>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-xs-6 feed-container">
-    <div class="row">
-      Post Feed
-    </div>
-    <div class="row">
-      <div class="col-xs-12 drawing-actions">
-        <button class="btn btn-primary get-posts" style="display: none;">Get all your posts</button>
-        <form class="get-single-post" style="display: none;">
-          <div class="form-inline">
-            <fieldset>
-              <input class="form-control btn btn-primary" type="submit" name="submit" value="Find a drawing">
-              <input class="form-control" type="text" name="title" placeholder="Title">
-            </fieldset>
-          </div>
-        </form>
+    <div class="col-xs-6 feed-container">
+      <div class="row">
+        Post Feed
+      </div>
+      <div class="row">
+        <div class="col-xs-12 drawing-actions">
+          <button class="btn btn-primary get-posts" style="display: none;">Get all your posts</button>
+          <form class="get-single-post" style="display: none;">
+            <div class="form-inline">
+              <fieldset>
+                <input class="form-control btn btn-primary" type="submit" name="submit" value="Find a drawing">
+                <input class="form-control" type="text" name="title" placeholder="Title">
+              </fieldset>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xs-12 feed">
       </div>
     </div>
-    <div class="row">
-      <!-- <button class="btn btn-primary drawing-actions updateSVG">Update it</button>
-      <button class="btn btn-primary drawing-actions deleteSVG">Delete it</button> -->
-    </div>
-    <div class="col-xs-12 feed">
-    </div>
   </div>
+
 
 
 </body>
