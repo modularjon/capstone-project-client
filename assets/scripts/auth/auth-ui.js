@@ -25,6 +25,7 @@ const signInSuccess = (data) => {
   $('.sign-in').hide();
   $('.sign-out').show();
   $('.change-password').show();
+  $('.get-posts').show();
   $('.signed-in').text('Signed in as: ' + app.user.email);
   $('form').trigger('reset');
 };
@@ -32,10 +33,12 @@ const signInSuccess = (data) => {
 const signOutSuccess = () => {
   app.user = null;
   $('.feed').html('');
+  $('.get-posts').hide();
+  $('.get-single-post').hide();
+  $('.change-password').hide();
+  $('.sign-out').hide();
   $('.sign-up').show();
   $('.sign-in').show();
-  $('.sign-out').hide();
-  $('.change-password').hide();
   $('.signed-in').text('Sign in to start!');
 };
 
