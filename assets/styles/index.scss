@@ -1,5 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url(https://fonts.googleapis.com/css?family=Exo+2);
 
 $background-color: #fde8dc;
 $black: #0c0c0c;
@@ -14,6 +15,7 @@ $bootstrap-blue: #0b6ba7;
 body {
   background-color: tint($black, 90%);
   color: $black;
+  font-family: 'Exo 2', sans-serif;
   margin: 30px;
   padding-bottom: 15px;
   padding-top: 15px;
@@ -32,6 +34,11 @@ form,
 input,
 legend {
   margin: 6px 0;
+}
+
+.jumbotron {
+  background-color: $white;
+  border: 4px solid $black;
 }
 
 .drawing {
