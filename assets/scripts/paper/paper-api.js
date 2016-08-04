@@ -41,6 +41,25 @@ const createPost = (data) => {
   });
 };
 
+const updatePost = (id, data) => {
+  return new Promise((resolve, reject) => {
+    return $.ajax({
+      url: app.host + '/posts/' + id,
+      method: 'PATCH',
+      data,
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      },
+      success: (response) => {
+        resolve(response);
+      },
+      error: (error) => {
+        reject(error);
+      },
+    });
+  });
+};
+
 const deletePost = (data) => {
   return $.ajax({
     url: app.host + '/posts/' + data,
@@ -55,5 +74,6 @@ module.exports = {
   indexPosts,
   showPost,
   createPost,
+  updatePost,
   deletePost,
 };
