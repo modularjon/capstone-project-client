@@ -67,31 +67,50 @@
   <div class="col-xs-12 main-content">
     <div class="col-xs-6 drawing">
       <div class="row">
-        <div class="col-xs-12 palette-container">
-          <div class="palette" style="background-color: red;"></div>
-          <div class="palette" style="background-color: green;"></div>
-          <div class="palette" style="background-color: blue;"></div>
-          <div class="palette" style="background-color: orange;"></div>
-          <div class="palette" style="background-color: yellow;"></div>
-          <div class="palette" style="background-color: purple;"></div>
-          <div class="palette" style="background-color: black;"></div>
-          <div class="palette" style="background-color: white;"></div>
+        <div class="col-xs-12 text-center palette-container">
+          <div class="row">
+            <div class="palette-item" style="background-color: red;"></div>
+            <div class="palette-item" style="background-color: green;"></div>
+            <div class="palette-item" style="background-color: blue;"></div>
+            <div class="palette-item" style="background-color: orange;"></div>
+          </div>
+          <div class="row">
+            <div class="palette-item" style="background-color: yellow;"></div>
+            <div class="palette-item" style="background-color: purple;"></div>
+            <div class="palette-item" style="background-color: black;"></div>
+            <div class="palette-item" style="background-color: white;"></div>
+
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12 drawing-container">
-          <div class="drawing-canvas">
-            <canvas id="drawing"></canvas>
-          </div>
-          <form class="create-post">
-            <div class="form-inline">
-              <fieldset>
-                <input class="form-control" type="text" name="title" placeholder="Title">
-                <input class="form-control btn btn-primary" type="submit" name="submit" value="Post new drawing">
-              </fieldset>
+          <div class="row">
+            <div class="col-xs-1">
             </div>
-          </form>
-          <button class="btn btn-primary update-post">Update this post</button>
+            <div class="col-xs-10 drawing-canvas">
+              <canvas id="drawing"></canvas>
+            </div>
+            <div class="col-xs-1">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-1">
+            </div>
+            <div class="col-xs-10">
+              <form class="create-post">
+                <div class="form-inline">
+                  <fieldset>
+                    <input class="form-control" type="text" name="title" placeholder="Title">
+                    <input class="form-control btn btn-primary" type="submit" name="submit" value="Post new drawing">
+                  </fieldset>
+                </div>
+              </form>
+              <button class="btn btn-primary update-post">Update this post</button>
+            </div>
+            <div class="col-xs-1">
+            </div>
+          </div>
         </div>
       </div>
     </div>

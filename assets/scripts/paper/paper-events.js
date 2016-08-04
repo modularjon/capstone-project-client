@@ -23,14 +23,14 @@ const onPaperSetup = () => {
 
   paper.view.viewSize = (canvasDimension, canvasDimension);
 
-  // define the grid and include a bad click handler for now
+  // define the grid
   const drawGridRects = function(gridWidth, gridHeight, canvasSize) {
     let widthPixels = canvasSize.width / gridWidth;
     let heightPixels = canvasSize.height / gridHeight;
     for (let i = 0; i < gridWidth; i++) {
       for (let j = 0; j < gridHeight; j++) {
         let paperPixel = new paper.Path.Circle(canvasSize.left + (i + 0.5) * widthPixels, canvasSize.top + (j + 0.5) * heightPixels, widthPixels/2);//, heightPixels);
-        paperPixel.strokeColor = '#d3d3d3';
+        paperPixel.strokeColor = '#a6a6a6';
         paperPixel.fillColor = 'white';
       }
     }
@@ -136,7 +136,7 @@ const onDeletePost = (event) => {
 
 const addHandlers = () => {
   onPaperSetup();
-  $('.palette').on('click', onGetPaletteColor);
+  $('.palette-item').on('click', onGetPaletteColor);
   $('.get-posts').on('click', onGetAllPosts);
   $('.get-single-post').on('submit', onGetSinglePost);
   $('.create-post').on('submit', onCreatePost);

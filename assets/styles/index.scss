@@ -1,22 +1,26 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-$background-color: #fef2e5;
+$background-color: #fde8dc;
 $black: #0c0c0c;
 $white: #fff;
 $grey: #808080;
-$bootstrap-blue: #004c99;
+$bootstrap-blue: #0b6ba7;
 
 @function tint($color, $percentage) {
   @return mix($white, $color, $percentage);
 }
 
 body {
-  background-color: tint($grey, 80%);
+  background-color: tint($black, 90%);
   color: $black;
   margin: 30px;
   padding-bottom: 15px;
   padding-top: 15px;
+}
+
+canvas {
+  margin: 0 auto;
 }
 
 nav {
@@ -32,34 +36,25 @@ legend {
 
 .drawing {
   margin: 0 auto;
+  padding: 24px;
 }
 
 .drawing-container {
-  border: 3px solid $white;
-  border-radius: 12px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.drawing-canvas {
-  margin: 0 auto;
-}
-
-.drawing-actions {
-
-}
-
 .palette-container {
-  border: 3px solid $white;
+  border: 2px solid $grey;
   border-radius: 12px;
   margin: 0 auto;
-  padding: 12px;
+  padding: 24px;
 }
 
-.palette {
-  border: 3px solid $white;
+.palette-item {
+  border: 2px solid $white;
   border-radius: 12px;
-  box-shadow: -2px -2px 1px 1px $black;
+  box-shadow: -2px 2px 1px 1px $black;
   display: inline-block;
   height: 48px;
   margin: 6px;
@@ -67,16 +62,12 @@ legend {
 }
 
 .feed-container {
-  border: 3px solid $white;
+  border: 2px solid $grey;
   border-radius: 12px;
-  font-size: 48px;
-  margin: 0 auto;
-  padding: 20px;
+  font-size: 36px;
+  margin: 24px auto;
+  padding: 36px;
   text-align: center;
-}
-
-.feed {
-
 }
 
 .form-control {
