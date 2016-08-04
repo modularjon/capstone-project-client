@@ -1,7 +1,8 @@
 'use strict';
 
 const app = {
-  host: 'http://localhost:3000'
+  host: 'https://dot-matrix.herokuapp.com/'
+  // host: 'http://localhost:3000'
 };
 
 module.exports = app;
