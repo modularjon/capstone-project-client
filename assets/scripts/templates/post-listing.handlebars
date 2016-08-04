@@ -1,6 +1,18 @@
 {{#each posts}}
-  <div>
-    <h2 class="title" data-id={{id}}>{{title}}</h2>
-    <canvas id="feed-canvas-{{id}}" data-id={{id}} data-content={{content}}></canvas>
+  <div class="col-xs-12 post" data-id={{id}}>
+    <div class="row" data-id={{id}}>
+      <h2 class="title" data-id={{id}}>{{title}}</h2>
+      <canvas id="feed-canvas-{{id}}" data-id={{id}} data-content={{content}}></canvas>
+    </div>
+    <div class="row" data-id={{id}}>
+      <div class="col-xs-1">
+      </div>
+      <div class="col-xs-10">
+        <button class="btn btn-primary drawing-actions move-to-canvas" data-id={{id}}>Move this to the canvas</button>
+        <button class="btn btn-danger drawing-actions delete-post" data-id={{id}}>Delete</button>
+      </div>
+      <div class="col-xs-1">
+      </div>
+    </div>
   </div>
 {{/each}}
