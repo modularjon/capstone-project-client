@@ -37,8 +37,27 @@ legend {
 }
 
 .jumbotron {
-  background-color: $white;
-  border: 4px solid $black;
+  background-image: url('./images/jumbotron-image.svg');
+  background-position: left top -280px;
+  background-size: cover;
+  color: $white;
+}
+
+.display-3 {
+  margin-top: 60px;
+}
+
+@media (max-width: 992px) {
+  .jumbotron {
+    background-position: left top -140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .jumbotron {
+    background-position: left top -140px;
+    background-size: auto;
+  }
 }
 
 .drawing {
@@ -52,7 +71,7 @@ legend {
 }
 
 .palette-container {
-  border: 2px solid $grey;
+  background-color: $grey;
   border-radius: 12px;
   margin: 0 auto;
   padding: 24px;
@@ -69,8 +88,9 @@ legend {
 }
 
 .feed-container {
-  border: 2px solid $grey;
+  background-color: $grey;
   border-radius: 12px;
+  color: $white;
   font-size: 36px;
   margin: 24px auto;
   padding: 36px;
