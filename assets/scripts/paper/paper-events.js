@@ -12,29 +12,28 @@ let pixelColor;
 // variable to hold exported svg
 let content;
 
+const drawGridRects = function(gridWidth, gridHeight, canvasSize) {
+  let widthPixels = canvasSize.width / gridWidth;
+  let heightPixels = canvasSize.height / gridHeight;
+  for (let i = 0; i < gridWidth; i++) {
+    for (let j = 0; j < gridHeight; j++) {
+      let paperPixel = new paper.Path.Circle(canvasSize.left + (i + 0.5) * widthPixels,
+                                             canvasSize.top + (j + 0.5) * heightPixels,
+                                             widthPixels/2);
+      paperPixel.strokeColor = '#cccccc';
+      paperPixel.fillColor = 'white';
+    }
+  }
+};
+
 const onPaperSetup = () => {
-  // Get reference to canvas object:
-  // let canvas = document.getElementById('myCanvas');
+
   // Create empty project and view for the canvas:
   paper.setup('drawing');
 
   // set canvas to 256 x 256 pixels
   let canvasDimension = 256;
-
   paper.view.viewSize = (canvasDimension, canvasDimension);
-
-  // define the grid
-  const drawGridRects = function(gridWidth, gridHeight, canvasSize) {
-    let widthPixels = canvasSize.width / gridWidth;
-    let heightPixels = canvasSize.height / gridHeight;
-    for (let i = 0; i < gridWidth; i++) {
-      for (let j = 0; j < gridHeight; j++) {
-        let paperPixel = new paper.Path.Circle(canvasSize.left + (i + 0.5) * widthPixels, canvasSize.top + (j + 0.5) * heightPixels, widthPixels/2);//, heightPixels);
-        paperPixel.strokeColor = '#cccccc';
-        paperPixel.fillColor = 'white';
-      }
-    }
-  };
 
   // creates the grid
   drawGridRects(16, 16, paper.view.bounds);
@@ -54,6 +53,23 @@ const onPaperSetup = () => {
 
 const onGetPaletteColor = function(event) {
   pixelColor = $(event.target).css('background-color');
+};
+
+const onMoveToCanvas = (event) => {
+  event.preventDefault();
+
+  let id = $(event.target).data('id');
+  let content = $(`#feed-canvas-${id}`).data('content');
+  paper.projects[0].importJSON(content);
+  $('#drawing').data('id', id);
+  $('#drawing').data('content', content);
+};
+
+const onClearDrawing = (event) => {
+  event.preventDefault();
+
+  paper.project.clear();
+  drawGridRects(16, 16, paper.view.bounds);
 };
 
 const onGetAllPosts = (event) => {
@@ -95,16 +111,6 @@ const onCreatePost = function(event) {
     .catch(ui.failure);
 };
 
-const onMoveToCanvas = (event) => {
-  event.preventDefault();
-
-  let id = $(event.target).data('id');
-  let content = $(`#feed-canvas-${id}`).data('content');
-  paper.projects[0].importJSON(content);
-  $('#drawing').data('id', id);
-  $('#drawing').data('content', content);
-};
-
 const onUpdatePost = (event) => {
   event.preventDefault();
 
@@ -137,10 +143,11 @@ const onDeletePost = (event) => {
 const addHandlers = () => {
   onPaperSetup();
   $('.palette-item').on('click', onGetPaletteColor);
+  $(document).on('click', '.move-to-canvas', onMoveToCanvas);
+  $('.clear-drawing').on('click', onClearDrawing);
   $('.get-posts').on('click', onGetAllPosts);
   $('.get-single-post').on('submit', onGetSinglePost);
   $('.create-post').on('submit', onCreatePost);
-  $(document).on('click', '.move-to-canvas', onMoveToCanvas);
   $('.update-post').on('click', onUpdatePost);
   $(document).on('click', '.delete-post', onDeletePost);
 };
