@@ -26,12 +26,12 @@ of text content.
 
 ## Screencap of the application
 
-  Screencap: [](./Screenshot-2016-08-05-08.22.22.jpg)
+  Screencap: [link](https://www.dropbox.com/s/d2oiunodvxwdsj9/Screenshot-2016-08-05-08.22.22.jpg?dl=0)
 
 ## Wireframes
 
-  Smiley: [](./wireframe-1.jpg)
-  Main wireframe: [](./wireframe-2.jpg)
+  Smiley: [link](https://www.dropbox.com/s/x6ak2kqa99c0vlt/wireframe-1.jpg?dl=0)
+  Main wireframe: [link](https://www.dropbox.com/s/afmv4uzncvn4ed6/wireframe-2.jpg?dl=0)
 
 ## Techs used
 
