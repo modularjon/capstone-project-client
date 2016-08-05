@@ -67,10 +67,16 @@ legend {
 
 .drawing-container {
   margin: 0 auto;
-  padding: 20px;
+  padding: 24px;
+}
+
+.drawing-canvas {
+  margin: 0 auto;
 }
 
 .palette-container {
+  color: $white;
+  font-size: 36px;
   background-color: $grey;
   border-radius: 12px;
   margin: 0 auto;
@@ -87,13 +93,19 @@ legend {
   width: 48px;
 }
 
-.feed-container {
+.feed-header {
   background-color: $grey;
   border-radius: 12px;
   color: $white;
   font-size: 36px;
-  margin: 24px auto;
-  padding: 36px;
+  margin: 0 auto;
+  padding: 24px;
+  text-align: center;
+}
+
+.feed-container {
+  margin: 0 auto;
+  padding: 24px;
   text-align: center;
 }
 

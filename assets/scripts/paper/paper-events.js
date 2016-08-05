@@ -30,7 +30,7 @@ const onPaperSetup = () => {
     for (let i = 0; i < gridWidth; i++) {
       for (let j = 0; j < gridHeight; j++) {
         let paperPixel = new paper.Path.Circle(canvasSize.left + (i + 0.5) * widthPixels, canvasSize.top + (j + 0.5) * heightPixels, widthPixels/2);//, heightPixels);
-        paperPixel.strokeColor = '#a6a6a6';
+        paperPixel.strokeColor = '#cccccc';
         paperPixel.fillColor = 'white';
       }
     }
