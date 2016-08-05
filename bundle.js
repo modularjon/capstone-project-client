@@ -16581,7 +16581,7 @@ webpackJsonp([0],[
 /* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "3bb76c90ec693d36342dd0d6ff597fdd.svg";
+	module.exports = __webpack_require__.p + "15ebb8427b162aecea89795b92c74e21.png";
 
 /***/ },
 /* 43 */
